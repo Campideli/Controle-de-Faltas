@@ -9,44 +9,50 @@ const firebaseConfig = {
   measurementId: "G-E9TEYX40DP"
   };
   
-  // initialize firebase
   firebase.initializeApp(firebaseConfig);
   
   const auth = firebase.auth()
   const database = firebase.database()
 
-  // reference your database
   var ControleFaltaDB = firebase.database().ref("ControleFalta");
-  
-  document.getElementById("ControleFalta").addEventListener("Confirm", ConfirmForm);
-  
-  function ConfirmForm(e) {
-    e.preventDefault();
-    //   enable alertaa
-    document.querySelector(".alert").style.display = "block";
-  
-    //   remove the alert
-    setTimeout(() => {
-      document.querySelector(".alert").style.display = "none";
-    }, 3000);
-  
-    //   reset the form
-    document.getElementById("ControleFalta").reset();
-  }
-
 
   function validatePassword(){
     var name = document.getElementById("name").value;
     var password = document.getElementById("password").value;
     var confirm_password = document.getElementById("confirm_password").value;
-        if (password != confirm_password){
-      alert("As senhas não conferem");
+
+    if (password == confirm_password && password.length >= 6 && confirm_password.length >= 6 && name != "" && password != "" && confirm_password != "") {
+      document.getElementById("botao").removeAttribute("disabled");
     } else {
-      alert("Usuário criado");
-      saveMessages(name, password, confirm_password);
+      document.getElementById("botao").setAttribute("disabled", "disabled");
+    }
+    
+    if (password == confirm_password){
+      document.getElementById("conferem").style.color = "white";
+    } else {
+      document.getElementById("conferem").style.color = "rgba(255, 255, 255, 0.5)";
+    }
+    
+    if (password.length >= 6 || confirm_password.length >= 6){ 
+      document.getElementById("minimo").style.color = "white";
+    } else {
+      document.getElementById("minimo").style.color = "rgba(255, 255, 255, 0.5)";
+    }
+    
+    if (name != "" || password != "" || confirm_password != "") {
+      document.getElementById("vazio").style.color = "white";
+    } else {
+      document.getElementById("vazio").style.color = "rgba(255, 255, 255, 0.5)";
     }
   }    
   
+  function salvar(){
+    var name = document.getElementById("name").value;
+    var password = document.getElementById("password").value;
+    var confirm_password = document.getElementById("confirm_password").value;
+    saveMessages(name, password, confirm_password);
+    alert("Cadastro realizado com sucesso!");
+  }
   
   const saveMessages = (name, password, confirm_password) => {
     var newControleFalta = ControleFaltaDB.push();

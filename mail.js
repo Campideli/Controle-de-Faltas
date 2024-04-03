@@ -28,21 +28,21 @@ const firebaseConfig = {
     }
     
     if (password == confirm_password){
-      document.getElementById("conferem").style.color = "white";
+      document.getElementById("conferem").style.color = "#EDC18E";
     } else {
-      document.getElementById("conferem").style.color = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("conferem").style.color = "#edc18e8f";
     }
     
     if (password.length >= 6 || confirm_password.length >= 6){ 
-      document.getElementById("minimo").style.color = "white";
+      document.getElementById("minimo").style.color = "#EDC18E";
     } else {
-      document.getElementById("minimo").style.color = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("minimo").style.color = "#edc18e8f";
     }
     
     if (name != "" || password != "" || confirm_password != "") {
-      document.getElementById("vazio").style.color = "white";
+      document.getElementById("vazio").style.color = "#EDC18E";
     } else {
-      document.getElementById("vazio").style.color = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("vazio").style.color = "#edc18e8f";
     }
   }    
   

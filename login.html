@@ -13,7 +13,7 @@
     <div class="main">
         <div class="container">
             <form action="" id="ControleFalta">
-                <h1>Cadastre-se</h1>
+                <h1>Fazer login</h1>
                 <h2>Email</h2>
                 <div class="inputBox">
                     <input type="text" id="name" required/>
@@ -22,23 +22,19 @@
                 <div class="inputBox" onchange="validatePassword()">
                     <input type="password" id="password" required/>
                 </div>
-                <h2>Confirmar senha</h2>
-                <div class="inputBox" onchange="validatePassword()">
-                    <input type="password" id="confirm_password" required/>
-                </div>
                 <div class="inputBox">
-                    <button type="button" id="botao" disabled="true" onclick="salvar()">Confirmar</button>
+                    <button type="Confirm" id="botao" disabled="true" onclick="salvar()">Confirmar</button>
                 </div>
-                <div class="error" id="vazio">• Todos os campos devem ser preenchidos</div>
-                <div class="error" id="minimo">• A senha deve ter no mínimo 6 caracteres</div>
-                <div class="error" id="conferem">• As senhas devem conferir</div>
+                <div>
+                    <button type="button" class="clear">Recuperar Senha</button>
+                </div>
             </form>
         </div>
         <div class="texto">
             <h3>agora fica <br> facil se organizar!</h3>
-            <h4>Ja tem uma conta?</h4>
+            <h4>ainda nao tem uma conta?</h4>
             <div class="botao">
-                <button type="button" onclick="window.location.href = 'login.html'">Login</button>
+                <button type="button" onclick="window.location.href = 'index.html'">Cadastrar</button>
             </div>
         </div>
         

@@ -1,48 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faltei - Fernando Campideli</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-
-<body>
-    <div class="main">
-        <div class="container">
-            <form action="" id="ControleFalta">
-                <h1>Fazer login</h1>
-                <h2>Email</h2>
-                <div class="inputBox">
-                    <input type="text" id="name" required/>
-                </div>
-                <h2>Senha</h2>
-                <div class="inputBox" onchange="validatePassword()">
-                    <input type="password" id="password" required/>
-                </div>
-                <div class="inputBox">
-                    <button type="Confirm" id="botao" disabled="true" onclick="salvar()">Confirmar</button>
-                </div>
-                <div>
-                    <button type="button" class="clear">Recuperar Senha</button>
-                </div>
-            </form>
-        </div>
-        <div class="texto">
-            <h3>agora fica <br> facil se organizar!</h3>
-            <h4>ainda nao tem uma conta?</h4>
-            <div class="botao">
-                <button type="button" onclick="window.location.href = 'index.html'">Cadastrar</button>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Faltei - Fernando Campideli</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="icon" href="data:,">
+    </head>
+    
+    <body>
+        <div class="main">
+            <div class="container">
+                <form action="" id="ControleFalta">
+                    <h1>Fazer login</h1>
+                    <h2>Email</h2>
+                    <div class="inputBox" onchange="validateLogin()"><input type="text" id="email" required/></div>
+                    <h2>Senha</h2>
+                    <div class="inputBox" onchange="validateLogin()"><input type="password" id="password" required/></div>
+                    <div class="inputBox"><button type="button" id="botaologin" disabled="true" onclick="login()">Confirmar</button></div>
+                    <div><button type="button" class="clear" id="recupera" onclick="recuperarSenha()">Recuperar Senha</button></div>
+                </form>
+            </div>
+            <div class="texto">
+                <h3>agora fica <br> facil se organizar!</h3>
+                <h4>ainda nao tem uma conta?</h4>
+                <div class="botao"><button type="button" onclick="window.location.href = 'registro.html'">Cadastrar</button></div>
             </div>
         </div>
-        
-    </div>
-    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-    <script src="./mail.js"></script>
-</body>
+        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+        <script src="firebase-init.js"></script>
+        <script src="./mail.js"></script>
+    </body>
 </html>

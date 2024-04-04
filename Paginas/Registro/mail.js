@@ -1,8 +1,3 @@
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    alert("Usuário logado!");
-  }
-});
 
 function validateLogin(){
   var email = form.email().value;
@@ -75,7 +70,7 @@ function registrar(){
   firebase.auth().createUserWithEmailAndPassword(form.email().value, form.password().value)
     .then(() => {
       console.log("Usuário cadastrado com sucesso!");
-      window.location.href = 'login.html';
+      window.location.href = '/Paginas/Registro/login.html';
     })
     .catch((error) => {
       alert("Usuário já cadastrado!");
@@ -86,7 +81,7 @@ function login(){
   firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value)
     .then(() => {
       console.log("Login successful");
-      window.location.href = 'home.html';
+      window.location.href = '/Paginas/Home/home.html';
     })
     .catch((error) => {
       alert("Usuário ou senha inválidos!");

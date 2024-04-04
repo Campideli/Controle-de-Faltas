@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -6,11 +8,11 @@
 
 @font-face {
     font-family: 'Roboto Regular';
-    src:  url(Roboto-Regular.ttf);
+    src:  url(/Fontes/Roboto-Regular.ttf);
 }
 @font-face {
     font-family: 'Bebas';
-    src:  url(Bebas-Regular.ttf);
+    src:  url(/Fontes/Bebas-Regular.ttf);
 }
 
 body{
@@ -43,7 +45,7 @@ body{
     color: #EDC18E;
     font-size: 42px;
     font-weight: bold;
-    font-family: 'Bebas';
+    font-family: 'Poppins';
     align-self: start;
 }
 
@@ -52,7 +54,7 @@ body{
     padding: 0px 2px;
     font-size: 16px;
     font-weight: bold;
-    font-family: 'Roboto Regular';
+    font-family: 'Poppins';
     margin-top: 30px;
     align-self: start;
 }
@@ -73,6 +75,8 @@ body{
 .inputBox input[type="text"], .inputBox input[type="password"], .inputBox input[type="password"]{
     width: 100%;
     height: 50px;
+    font-family: 'Roboto Regular';
+    font-weight: bold;
     border-radius: 8px;
     border: none;
     outline: none;
@@ -94,7 +98,7 @@ body{
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    font-family: 'Roboto Regular';
+    font-family: 'Poppins';
     margin-top: 30px;
     margin-bottom: 14px;
     transition: all 0.3s ease;
@@ -117,7 +121,7 @@ body{
     color: #edc18e8f;
     font-size: 14px;
     font-weight: bold;
-    font-family: 'Roboto Regular';
+    font-family: 'Poppins';
     margin-top: 10px;
 }
 
@@ -125,7 +129,7 @@ body{
     color: #302d4c;
     font-size: 70px;
     font-weight: bold;
-    font-family: 'Bebas';
+    font-family: 'Poppins';
     margin-top: 30px;
     margin-left: 40px;
 }
@@ -134,7 +138,7 @@ body{
     color: #302d4c;
     font-size: 30px;
     font-weight: bold;
-    font-family: 'Bebas';
+    font-family: 'Poppins';
     margin-top: 30px;
     margin-left: 40px;
 }
@@ -146,7 +150,7 @@ button:active{
 .clear{
     background-color: transparent;
     color: #edc18e8f;
-    font-family: 'Roboto Regular';
+    font-family: 'Poppins';
     cursor: pointer;
     border: none;
 }
@@ -162,7 +166,7 @@ button:active{
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    font-family: 'Roboto Regular';
+    font-family: 'Poppins';
     margin-top: 10px;
     margin-left: 40px;
     transition: all 0.3s ease;

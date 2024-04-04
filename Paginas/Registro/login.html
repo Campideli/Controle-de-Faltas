@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Faltei - Fernando Campideli</title>
+        <title>Faltei - Login</title>
         <link rel="stylesheet" href="./styles.css">
         <link rel="icon" href="data:,">
     </head>
@@ -24,14 +24,22 @@
                 </form>
             </div>
             <div class="texto">
-                <h3>agora fica <br> facil se organizar!</h3>
-                <h4>ainda nao tem uma conta?</h4>
-                <div class="botao"><button type="button" onclick="window.location.href = 'registro.html'">Cadastrar</button></div>
+                <h3>Agora fica <br> fácil se organizar!</h3>
+                <h4>Ainda não tem uma conta?</h4>
+                <div class="botao"><button type="button" onclick="window.location.href = './registro.html'">Cadastrar</button></div>
             </div>
         </div>
         <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
-        <script src="firebase-init.js"></script>
-        <script src="./mail.js"></script>
+        <script src="/firebase-init.js"></script>
+        <script src="/Paginas/Registro/mail.js"></script>
+        <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              alert("Usuário logado!");
+              window.location.href = '/Paginas/Home/home.html';
+            }
+        });
+        </script>
     </body>
 </html>

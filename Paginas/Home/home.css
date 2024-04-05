@@ -174,3 +174,103 @@ main {
     justify-content: flex-start;
     gap: 14px;
 }
+
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    padding: 30px;
+    background-color: #302d4c;
+    border-radius: 20px;
+}
+
+.container h1{
+    text-align: start;
+    color: #EDC18E;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container input {
+    background-color: #444068;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .add {
+    position: absolute;
+    top: 4%;
+    right: 8%;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #EDC18E;
+    color: #302d4c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.container .add:hover {
+    background-color: #ffd6a7;
+}
+
+.task-actions button {
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #EDC18E;
+    color: #302d4c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.task-actions button:hover {
+    background-color: #ffd6a7;
+}
+
+.container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    background-color: #444068;
+    color: #EDC18E;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.container li {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #444068;
+    color: #EDC18E;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container li span {
+    flex: 1;
+    text-align: left;
+}
+
+.deleteButton {
+    margin-left: 5px;
+}

@@ -64,6 +64,24 @@
             </button>
         </div>
     </nav>
+    <div class="container">
+        <h1>Matérias</h1>
+        <button class="add" onclick="addTask()">Adicionar</button>
+        <ul id="taskList"></ul>
+        <li>
+            <div class="task">
+                <div class="task-content">
+                    <h2>Matemática</h2>
+                    <p>Professor: Fulano de Tal</p>
+                    <p>Quantidade de faltas: 0</p>
+                </div>
+                <div class="task-actions">
+                    <button onclick="editTask()">Editar</button>
+                    <button onclick="deleteTask()">Excluir</button>
+                </div>
+            </div>
+        </li>
+    </div>
     <script>
         document.getElementById('open_btn').addEventListener('click', function () {
         document.getElementById('sidebar').classList.toggle('open-sidebar');

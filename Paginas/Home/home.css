@@ -89,7 +89,7 @@ main {
 
 .side-item:hover:not(.active),
 #logout_btn:hover {
-    background-color: #ffd6a7;
+    background-color: #302d4c;
 }
 
 .side-item a {
@@ -97,7 +97,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #302d4c;
+    color: #EDC18E;
 }
 
 .side-item.active a {
@@ -205,10 +205,16 @@ main {
     justify-content: center;
 }
 
+h2 {
+    font-size: 22px;
+    color: #EDC18E;
+    font-family: 'Poppins', sans-serif;
+}
+
 .container .add {
     position: absolute;
     top: 4%;
-    right: 8%;
+    right: 5%;
     padding: 8px 16px;
     font-size: 16px;
     font-weight: bold;
@@ -224,8 +230,14 @@ main {
     background-color: #ffd6a7;
 }
 
+.task-actions {
+    position: absolute;
+    top: 17px;
+    left: 355px;
+}
+
 .task-actions button {
-    padding: 8px 16px;
+    padding: 7px 14px;
     font-size: 16px;
     font-weight: bold;
     background-color: #EDC18E;
@@ -234,20 +246,20 @@ main {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+    margin: 2px;
 }
 
 .task-actions button:hover {
     background-color: #ffd6a7;
 }
 
-.container ul {
+.container ol {
     list-style-type: none;
     padding: 0;
 }
 
-.task {
-    display: flex;
-    align-items: center;
+li {
+    position: relative;
     background-color: #444068;
     color: #EDC18E;
     padding: 10px;
@@ -256,14 +268,11 @@ main {
 }
 
 .container li {
-    margin-top: 15px;
-    padding: 10px;
+    margin-top: 12px;
+    display: block;
     background-color: #444068;
     color: #EDC18E;
-    margin-bottom: 5px;
     border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
 }
 
 .container li span {

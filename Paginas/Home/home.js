@@ -6,37 +6,47 @@ function logout(){
     });
 }
 
-const tasklist = document.getElementById("taskList");
-const taskInput = document.getElementById("taskInput");
+findMateria();
 
-function addTask() {
-    const taskText = taskInput.value.trim();
-    if (taskText !== "") {
+function findMateria(){
+    setTimeout(() => {
+        addMateriasToScreen(fakeMateria);
+    }, 0);
+}
 
-        const maxText = taskText.substring(0, 35);
+function addMateriasToScreen(materias){
+    const materiasDiv = document.getElementById("materias");
 
-        const li = document.createElement("li");
-        li.innerHTML = `
-            
-            <span>${maxText}</span>
-            <button class="editButton" onClick="editTask(this)">Editar</button>
-            <button class="deleteButton" onClick="deleteTask(this)">Remover</button>
+    materias.forEach(materia => {
+        const materiaDiv = document.createElement("div");
+        materiaDiv.className = "materia";
+        materiaDiv.innerHTML = `
+            <li>
+                <h2>${materia.nome}</h2>
+                <p>Limite de faltas: ${materia.limite}</p>
+                <div class="task-actions">
+                    <button onclick="editTask()">Editar</button>
+                    <button onclick="deleteTask()">Excluir</button>
+                </div>
+            </li>
         `;
-        tasklist.appendChild(li);
-        taskInput.value = "";
-    }
-}
+        materiasDiv.appendChild(materiaDiv);
+    });
+    };
 
-function editTask(button) {
-    const li = button.parentElement;
-    const span = li.querySelector("span");
-    const newText = prompt("Editar tarefa:", span.textContent);
-    if (newText !== null && newText.trim() !== "") {
-        span.textContent = newText.trim();
-    }
-}
-
-function deleteTask(button) {
-    const li = button.parentElement;
-    tasklist.removeChild(li);
-}
+fakeMateria = [{
+    nome: "Cálculo",
+    limite: 25,
+},{
+    nome: "Matemática Discreta",
+    limite: 17,
+},{
+    nome: "Estrutura de Dados",
+    limite: 25,
+},{
+    nome: "Arquitetura de Comp.",
+    limite: 17,
+},{
+    nome: "Noções de Direito",
+    limite: 8,
+}];

@@ -175,7 +175,6 @@ main {
     gap: 14px;
 }
 
-
 .container {
     position: absolute;
     top: 50%;
@@ -186,6 +185,7 @@ main {
     padding: 30px;
     background-color: #302d4c;
     border-radius: 20px;
+    overflow: auto;
 }
 
 .container h1{

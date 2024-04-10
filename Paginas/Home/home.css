@@ -283,3 +283,77 @@ li {
 .deleteButton {
     margin-left: 5px;
 }
+
+.estrutura{
+    gap: 25px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.barContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    height: 81%;
+    padding: 50px;
+    padding-top: 10px;
+    background-color: #302d4c;
+    border-radius: 20px;
+    overflow: auto;
+}
+
+.barContainer h1{
+    text-align: center;
+    color: #EDC18E;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+.pBar{
+    display: flex;
+    width: 220px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #444068;
+    row-gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.circular-progress{
+    position: relative;
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    background: conic-gradient(#ffd6a7 3.6deg, #302d4c 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-progress::before{
+    content: "";
+    position: absolute;
+    height: 105px;
+    width: 105px;
+    border-radius: 50%;
+    background-color: #444068;
+}
+
+.progress-value{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffd6a7;
+}
+
+.text{
+    color: #EDC18E;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}

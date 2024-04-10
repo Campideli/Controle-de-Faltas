@@ -54,7 +54,6 @@
                 <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
             </button>
         </div>
-
         <div id="logout">
             <button id="logout_btn" onclick="logout()">
                 <i class="fa-solid fa-right-from-bracket" onclick="logout()"></i>
@@ -64,6 +63,10 @@
             </button>
         </div>
     </nav>
+    <div class="barContainer">
+        <h1>Faltas</h1>
+        <ol id="materias" class="estrutura"></ol>
+    </div>
     <script>
         document.getElementById('open_btn').addEventListener('click', function () {
         document.getElementById('sidebar').classList.toggle('open-sidebar');
@@ -71,6 +74,7 @@
     </script>
     <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
     <script src="/firebase-init.js"></script>
     <script src="/auth-guard.js"></script>
     <script src="home.js"></script>

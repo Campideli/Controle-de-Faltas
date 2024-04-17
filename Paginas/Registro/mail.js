@@ -70,7 +70,7 @@ function registrar(){
   firebase.auth().createUserWithEmailAndPassword(form.email().value, form.password().value)
     .then(() => {
       console.log("Usuário cadastrado com sucesso!");
-      window.location.href = '/Paginas/Registro/login.html';
+      window.location.href = '/index.html';
     })
     .catch((error) => {
       alert("Usuário já cadastrado!");

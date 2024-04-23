@@ -38,27 +38,77 @@ function addMateriasToScreen(materias){
             <div class="circular-progress">
                 <span class="progress-value">0%</span>
             </div>
-        <span class="text">${materia.faltas}/${materia.limite}</span>    
+        <span class="text">${materia.faltas}/${materia.limite}</span>
+        <div class="btn-actions">
+            <button class="btn" onclick="maisTask('${materia.uid}')">+</button>  
+            <button class="btn" onclick="menosTask('${materia.uid}')">-</button>      
+        </div>
         </div>
         `;
-        circleBar();
         materiasDiv.appendChild(materiaDiv);
     });
+    circleBar();
 };
 
 function circleBar(){
-    let circularProgress = document.querySelector(".circular-progress"),
-    progressValue = document.querySelector(".progress-value");
-    let progressStartValue = 0,    
-    progressEndValue = 90,    
-    speed = 15;
+    var materiateste = document.getElementsByClassName("materia");
+    for (var i = 0; i < materiateste.length; i++){
+        var materia = materiateste[i];
+        var limite = materia.getElementsByClassName("text")[1].innerHTML.split("/")[1];
+        var faltas = materia.getElementsByClassName("text")[1].innerHTML.split("/")[0];
+        var percent = (faltas / limite) * 100;
+        console.log(faltas, limite);
+        var progressValue = materia.getElementsByClassName("progress-value")[0];
+        progressValue.innerHTML = percent.toFixed(0) + "%";
+        var progressBar = materia.getElementsByClassName("circular-progress")[0];
+        progressBar.style.background = `conic-gradient(#ffd6a7 ${percent * 3.6}deg, #302d4c 0deg)`;
+    }
+}
 
-    let progress = setInterval(() => {
-    progressStartValue++;
-    progressValue.textContent = `${progressStartValue}%`
-    circularProgress.style.background = `conic-gradient(#ffd6a7 ${progressStartValue * 3.6}deg, #302d4c 0deg)`
-    if(progressStartValue == progressEndValue){
-        clearInterval(progress);
-    }    
-    }, speed);
+function maisTask(uid){
+    firebase.firestore()
+    .collection("materias")
+    .doc(uid)
+    .get()
+    .then((doc) => {
+        const materia = {
+            uid: doc.id,
+            ...doc.data()
+        };
+        if (materia.faltas < materia.limite){
+            firebase.firestore()
+            .collection("materias")
+            .doc(uid)
+            .update({
+                faltas: materia.faltas + 1
+            })
+            .then(() => {
+                location.reload();
+            });
+        }
+    });
+}
+
+function menosTask(uid){
+    firebase.firestore()
+    .collection("materias")
+    .doc(uid)
+    .get()
+    .then((doc) => {
+        const materia = {
+            uid: doc.id,
+            ...doc.data()
+        };
+        if (materia.faltas > 0){
+            firebase.firestore()
+            .collection("materias")
+            .doc(uid)
+            .update({
+                faltas: materia.faltas - 1
+            })
+            .then(() => {
+                location.reload();
+            });
+        }
+    });
 }

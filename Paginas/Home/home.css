@@ -296,7 +296,7 @@ li {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 55%;
-    height: 81%;
+    height: 88%;
     padding: 50px;
     padding-top: 10px;
     background-color: #302d4c;
@@ -314,7 +314,7 @@ li {
 .pBar{
     display: flex;
     width: 220px;
-    height: 300px;
+    height: 330px;
     padding: 20px;
     border-radius: 8px;
     background: #444068;
@@ -356,4 +356,18 @@ li {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 14px;
+}
+
+.btn {
+    padding: 1px 7px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #EDC18E;
+    color: #302d4c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0px;
+    margin-right: 1px;
+    margin-left: 1px;
 }

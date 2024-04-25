@@ -36,12 +36,12 @@
         <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
         <script src="/firebase-init.js"></script>
+        <script src="/loading.js"></script>
         <script src="/Paginas/Registro/mail.js"></script>
         <script>
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
-                  alert("Usuário logado!");
-                  window.location.href = '/Paginas/Home/home.html';
+                    window.location.href = '/Paginas/Home/home.html';
                 }
             });
         </script>

@@ -1,6 +1,6 @@
 firebase.auth().onAuthStateChanged(function(user) {
     if (!user) {
-      alert("Você não está logado!");
+      showLoading();
       window.location.href = '/Paginas/Registro/login.html';
     }
 });

@@ -67,31 +67,38 @@ function validateEmail(email) {
 }
 
 function registrar(){
+  showLoading();
   firebase.auth().createUserWithEmailAndPassword(form.email().value, form.password().value)
     .then(() => {
-      console.log("Usuário cadastrado com sucesso!");
-      window.location.href = '/Paginas/Registro/login.html';
+      hideLoading();
+      window.location.href = '/Paginas/Home/home.html';
     })
     .catch((error) => {
+      hideLoading();
       alert("Usuário já cadastrado!");
     });
 }
 
 function login(){
+  showLoading();
   firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value)
     .then(() => {
-      console.log("Login successful");
+      hideLoading();
       window.location.href = '/Paginas/Home/home.html';
     })
     .catch((error) => {
+      hideLoading();
       alert("Usuário ou senha inválidos!");
     });
 }
 
 function recuperarSenha(){
+  showLoading();
   firebase.auth().sendPasswordResetEmail(form.email().value).then(() => {
+    hideLoading();
     alert("Email enviado com sucesso!");
   }).catch((error) => {
+    hideLoading();
     alert("Email inválido!");
   });
 }

@@ -57,7 +57,6 @@ function circleBar(){
         var limite = materia.getElementsByClassName("text")[1].innerHTML.split("/")[1];
         var faltas = materia.getElementsByClassName("text")[1].innerHTML.split("/")[0];
         var percent = (faltas / limite) * 100;
-        console.log(faltas, limite);
         var progressValue = materia.getElementsByClassName("progress-value")[0];
         progressValue.innerHTML = percent.toFixed(0) + "%";
         var progressBar = materia.getElementsByClassName("circular-progress")[0];

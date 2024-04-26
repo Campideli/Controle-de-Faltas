@@ -39,7 +39,7 @@ function addMateriasToScreen(materias){
                 <h2>${materia.nome}</h2>
                 <p>Limite de faltas: ${materia.limite}</p>
                 <div class="task-actions">
-                    <button onclick="edita('${materia.uid}')">Editar</button>
+                    <button onclick="edita('${materia.uid}', '${materia.nome}', '${materia.limite}')">Editar</button>
                     <button onclick="remove('${materia.uid}')">Excluir</button>
                 </div>
             </li>
@@ -55,7 +55,10 @@ function addMateria() {
     const nome = nomeInput.value.trim();
     const limite = parseInt(limiteInput.value.trim());
 
-    firebase.firestore().collection("materias").doc().set({
+    firebase.firestore()
+    .collection("materias")
+    .doc()
+    .set({
         nome: nome,
         limite: limite,
         faltas: 0,
@@ -168,67 +171,53 @@ function hideAdd() {
     document.body.removeChild(addDiv);
 }
 
-function editTask(uid){
+function edita(uid, nome, limite){
+    const editDiv = document.createElement("div");
+    editDiv.className = "editDiv";
+    editDiv.innerHTML = `
+    <div class="editForm">
+        <button class="botaoVoltar" onclick="hideEdit()">Voltar</button>
+        <h1>Editar Matéria</h1>
+        <form class="teste">
+            <label class="texto">Nome da Matéria</label>
+            <input type="text" id="nome" onchange="validateEdit()" value="${nome}" required>
+            <label class="texto">Limite de Faltas</label>
+            <input type="text" id="limite" onchange="validateEdit()" value="${limite}" required>
+            <button class="botaoEditar" onclick="editMateria('${uid}')">Editar</button>
+        </form>
+    </div>
+    `;
+    document.body.append(editDiv);
+}
+
+function hideEdit() {
+    var editDiv = document.querySelector('.editDiv');
+    document.body.removeChild(editDiv);
+}
+
+function editMateria(uid){
     const nomeInput = document.getElementById("nome");
     const limiteInput = document.getElementById("limite");
     const nome = nomeInput.value.trim();
     const limite = parseInt(limiteInput.value.trim());
-    showLoading();
-    firebase.firestore()
-        .collection("materias")
-        .doc(uid)
-        .update({
-            nome: nome,
-            limite: limite
-        })
-        .then(() => {
-            hideLoading();
-            window.location.reload();
-        })
-        .catch((error) => {
-            alert("Erro ao editar matéria: " + error.message);
-        });
-
-    nomeInput.value = "";
-    limiteInput.value = "";
-}
-
-function edita(uid){
-    showLoading();
 
     firebase.firestore()
     .collection("materias")
     .doc(uid)
-    .get()
-    .then((doc) => {
-        const materia = doc.data();
-        showEdita(materia.nome, materia.limite, uid);
+    .update({
+        nome: nome,
+        limite: limite
+    })
+    .then(() => {
+        console.log("Documento editado com sucesso!");
+        showLoading();
+        window.location.reload();
     })
     .catch((error) => {
-        alert("Erro ao editar matéria: " + error.message);
+        console.error("Erro ao editar documento: ", error);
     });
-}
-    
-function showEdita(nomeInput, limiteInput, uid){
-    const editDiv = document.createElement("div");
-    editDiv.className = "editDiv";
-    editDiv.innerHTML = `
-    <form class="editForm">
-        <span>Editar Matéria</span>
-        <input type="text" id="nome" onchange="validateEdit()">
-        <input type="text" id="limite" onchange="validateEdit()">
-        <button class="botaoEditar" onclick="editTask('${uid}')" disabled="true">Editar</button>
-        <button class="botaoVoltar" onclick="hideEdita()">Voltar</button>
-    </form>
-    `;
-    document.body.append(editDiv);
-    form.nome().value = nomeInput;
-    form.limite().value = limiteInput;
-}
-
-function hideEdita() {
-    var editDiv = document.querySelector('.editDiv');
-    document.body.removeChild(editDiv);
+    nomeInput.value = "";
+    limiteInput.value = "";
 }
 
 function validateEdit(){
@@ -236,8 +225,8 @@ function validateEdit(){
     var limite = form.limite().value;
 
     if (!nome || !limite || nome.length > 24 || nome.length < 1 || nome == "" || nome == null || !isNaN(nome) || 0 > limite || limite > 50 || limite == "" || limite == null || isNaN(limite)) {
-        form.botaoEditar().setAttribute("disabled", true);
+        form.botaoEditar().disabled = true;
     } else {
-        form.botaoEditar().removeAttribute("disabled");
+        form.botaoEditar().disabled = false;
     }
 }

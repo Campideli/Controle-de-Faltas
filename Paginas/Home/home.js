@@ -1,6 +1,10 @@
+showLoading();
+
 function logout(){
+    showLoading();
     firebase.auth().signOut().then(function(){
         window.location.href = "/Paginas/Registro/login.html";
+        hideLoading();
     }).catch(function(error){
         alert('Erro ao deslogar!');
     });
@@ -48,6 +52,7 @@ function addMateriasToScreen(materias){
         materiasDiv.appendChild(materiaDiv);
     });
     circleBar();
+    hideLoading();
 };
 
 function circleBar(){

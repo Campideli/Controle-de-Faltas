@@ -1,3 +1,5 @@
+showLoading();
+
 function logout(){
     showLoading();
     firebase.auth().signOut().then(function(){
@@ -46,6 +48,7 @@ function addMateriasToScreen(materias){
         `;
         materiasDiv.appendChild(materiaDiv);
     });
+    hideLoading();
 };
 
 function addMateria() {
@@ -69,7 +72,6 @@ function addMateria() {
     })
     .then(() => {
         console.log("Documento adicionado com sucesso!");
-        showLoading();
         window.location.reload();
     })
     .catch((error) => {
@@ -80,19 +82,15 @@ function addMateria() {
 }
 
 function deleteTask(uid){
-    showLoading();
-
     firebase.firestore()
     .collection("materias")
     .doc(uid)
     .delete()
     .then(() => {
         window.location.reload();
-        hideLoading();
     })
     .catch((error) => {
         alert("Erro ao deletar matéria: " + error.message);
-        hideLoading();
     });
 }
 
@@ -210,7 +208,6 @@ function editMateria(uid){
     })
     .then(() => {
         console.log("Documento editado com sucesso!");
-        showLoading();
         window.location.reload();
     })
     .catch((error) => {
@@ -229,4 +226,18 @@ function validateEdit(){
     } else {
         form.botaoEditar().disabled = false;
     }
+}
+
+function showLoading() {
+    var loadingDiv = document.createElement('div');
+    loadingDiv.className = 'loadingDiv';
+    loadingDiv.innerHTML = `
+        <span class="loading"></span>
+    `;
+    document.body.appendChild(loadingDiv);
+}
+
+function hideLoading() {
+    var loadingDiv = document.querySelector('.loadingDiv');
+    document.body.removeChild(loadingDiv);
 }

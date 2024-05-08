@@ -116,13 +116,13 @@ function validateAdd(){
     var nome = form.nome().value;
     var limite = form.limite().value;
 
-    if (!nome || !limite || nome.length > 24 || nome.length < 1 || nome == "" || nome == null || !isNaN(nome) || 0 > limite || limite > 50 || limite == "" || limite == null || isNaN(limite)) {
+    if (!nome || !limite || nome.length > 21 || nome.length < 1 || nome == "" || nome == null || !isNaN(nome) || 0 > limite || limite > 50 || limite == "" || limite == null || isNaN(limite)) {
         form.botao().disabled = true;
     } else {
         form.botao().disabled = false;
     }
 
-    if (nome.length > 24 || nome.length < 1 || nome == "" || nome == null || !isNaN(nome)){
+    if (nome.length > 21 || nome.length < 1 || nome == "" || nome == null || !isNaN(nome)){
         form.vnome().style.color = "#edc18e8f";
     } else {
         form.vnome().style.color = "#EDC18E";
@@ -156,7 +156,7 @@ function adiciona(){
             <label class="texto">Limite de Faltas</label>
             <input onchange="validateAdd()" type="text" id="limite" required>
             <button class="submit" id="botao" disabled="true" onclick="addMateria()">Adicionar</button>
-            <div class="error1" id="vnome">• Nome menor que 24 caracteres</div>
+            <div class="error1" id="vnome">• Nome menor que 21 caracteres</div>
             <div class="error2" id="vlimite">• Limite menos que 50</div>
         </form>
     </div>
@@ -221,7 +221,7 @@ function validateEdit(){
     var nome = form.nome().value;
     var limite = form.limite().value;
 
-    if (!nome || !limite || nome.length > 24 || nome.length < 1 || nome == "" || nome == null || !isNaN(nome) || 0 > limite || limite > 50 || limite == "" || limite == null || isNaN(limite)) {
+    if (!nome || !limite || nome.length > 21 || nome.length < 1 || nome == "" || nome == null || !isNaN(nome) || 0 > limite || limite > 50 || limite == "" || limite == null || isNaN(limite)) {
         form.botaoEditar().disabled = true;
     } else {
         form.botaoEditar().disabled = false;
